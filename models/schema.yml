@@ -1,0 +1,32 @@
+models:
+
+    - name: sales
+      description: aggregation of sales by product
+      tests:
+        - unique:
+            column_name: "(orders_id || '-' || products_id)"
+            
+      columns:
+          - name: orders_id
+            description: identifier of PK - orders_id
+            tests : 
+            - not_null 
+
+          - name: products_id
+            description:  identifier of FK- products_id
+            tests :
+            - not_null
+
+          - name: qty
+            description:  name of the qantity
+          - name: turnover
+            tests :
+            - not_null
+
+          - name: purchase_cost
+            description:  name of the pruchase_cost
+            tests :
+            - not_null  
+
+          - name: margin
+            description:  operation betwenn turnover and purschase cost
